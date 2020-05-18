@@ -46,8 +46,8 @@ if __name__ == '__main__':
         "If True, audio won't be played.")
     args = parser.parse_args()
     print_args(args, parser)
-    if not args.no_sound:
-        import sounddevice as sd
+    # if not args.no_sound:
+    #     import sounddevice as sd
 
     # 语音文件输出目录
     _out_dir = Path(args.wav_output_dir)
@@ -129,10 +129,10 @@ if __name__ == '__main__':
             audio.save_wav(wav, fpath, synthesizer.sample_rate)
 
             # Play the audio (non-blocking)
-            if not args.no_sound:
-                sd.stop()
-                sd.play(wav, synthesizer.sample_rate)
-                sd.wait()
+            # if not args.no_sound:
+            #     sd.stop()
+            #     sd.play(wav, synthesizer.sample_rate)
+            #     sd.wait()
 
             # print(generated_wav.dtype)
             # librosa.output.write_wav(fpath, generated_wav.astype(np.float32), synthesizer.sample_rate)
